@@ -1,14 +1,29 @@
-<p style="color: green"><%= notice %></p>
+<p id="notice"><%= notice %></p>
 
-<h1>Line items</h1>
+<h1>Line Items</h1>
 
-<div id="line_items">
-  <% @line_items.each do |line_item| %>
-    <%= render line_item %>
-    <p>
-      <%= link_to "Show this line item", line_item %>
-    </p>
-  <% end %>
-</div>
+<table>
+  <thead>
+    <tr>
+      <th>Instrument</th>
+      <th>Cart</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
 
-<%= link_to "New line item", new_line_item_path %>
+  <tbody>
+    <% @line_items.each do |line_item| %>
+      <tr>
+        <td><%= line_item.instrument %></td>
+        <td><%= line_item.cart %></td>
+        <td><%= link_to 'Show', line_item %></td>
+        <td><%= link_to 'Edit', edit_line_item_path(line_item) %></td>
+        <td><%= link_to 'Destroy', line_item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Line Item', new_line_item_path %>

@@ -1,10 +1,14 @@
-<p style="color: green"><%= notice %></p>
+<p id="notice"><%= notice %></p>
 
-<%= render @line_item %>
+<p>
+  <strong>Instrument:</strong>
+  <%= @line_item.instrument %>
+</p>
 
-<div>
-  <%= link_to "Edit this line item", edit_line_item_path(@line_item) %> |
-  <%= link_to "Back to line items", line_items_path %>
+<p>
+  <strong>Cart:</strong>
+  <%= @line_item.cart %>
+</p>
 
-  <%= button_to "Destroy this line item", @line_item, method: :delete %>
-</div>
+<%= link_to 'Edit', edit_line_item_path(@line_item) %> |
+<%= link_to 'Back', line_items_path %>
