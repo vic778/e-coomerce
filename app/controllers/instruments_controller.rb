@@ -1,9 +1,10 @@
 class InstrumentsController < ApplicationController
   before_action :set_instrument, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!, except: %i[index show]
 
   # GET /instruments or /instruments.json
   def index
-    @instruments = Instrument.all
+    @instruments = Instrument.all.order("created_at desc")
   end
 
   # GET /instruments/1 or /instruments/1.json
@@ -12,7 +13,7 @@ class InstrumentsController < ApplicationController
 
   # GET /instruments/new
   def new
-    @instrument = Instrument.new
+    @instrument = current_user.instruments.build 
   end
 
   # GET /instruments/1/edit
@@ -21,7 +22,7 @@ class InstrumentsController < ApplicationController
 
   # POST /instruments or /instruments.json
   def create
-    @instrument = Instrument.new(instrument_params)
+    @instrument = current_user.instruments.build(instrument_params)
 
     respond_to do |format|
       if @instrument.save
@@ -65,6 +66,6 @@ class InstrumentsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def instrument_params
-      params.require(:instrument).permit(:brand, :model, :description, :condition, :finish, :title, :price)
+      params.require(:instrument).permit(:brand, :model, :description, :condition, :finish, :title, :price, :image)
     end
 end
