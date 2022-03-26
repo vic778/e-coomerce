@@ -80,7 +80,7 @@ run the tests by typing `bundle exec rspec`
 
 ### Deployment
 
-this project is deployed on heroku
+N/A
 
 ## Author
 
