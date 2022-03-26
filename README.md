@@ -3,7 +3,7 @@
 > this application consists in selling and buying articles online. each user before selling his article will be obliged to create a user account. to create a post there are hamps which are obligatory like the model of your article, the series as well as the state. it can be new or already used...
 the user can add favorite items on his card and each item added on the card will be calculated in terms of summation so that the user knows how much it is already. 
 
-[Live Demo Link](https://vic778.github.io/js_capstone_project/)
+![Demo](https://github.com/vic778/e-coomerce/blob/master/screen/demo.gif)
 
 This API is made of three models:
 - User model
