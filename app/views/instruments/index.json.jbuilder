@@ -1,1 +1,1 @@
-json.array! @instruments, partial: "instruments/instrument", as: :instrument
+json.array! @instruments, partial: 'instruments/instrument', as: :instrument
