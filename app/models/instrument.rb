@@ -1,10 +1,8 @@
 class Instrument < ApplicationRecord
-
-    before_destroy :not_referenced_by_any_line_item
-    belongs_to :user, optional: true
-    has_many :line_items
-    mount_uploader :image, ImageUploader
-
+  before_destroy :not_referenced_by_any_line_item
+  belongs_to :user, optional: true
+  has_many :line_items
+  mount_uploader :image, ImageUploader
 
   validates :title, :brand, :price, :model, presence: true
   validates :description, length: { maximum: 1000 }

@@ -26,7 +26,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_29_081248) do
     t.string "condition"
     t.string "finish"
     t.string "title"
-    t.decimal "price", precision: 5, scale: 2, default: "0.0"
+    t.integer "price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id"
