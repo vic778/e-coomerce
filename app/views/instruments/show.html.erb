@@ -22,7 +22,7 @@
       </ul>
 
       <div class="feature-image">
-        <%= image_tag(@instrument.image_url(:default)) %>
+       <%= image_tag(@instrument.image_url) if @instrument.image_url%>
       </div>
 
       <div class="content pa4 mt3 bg-white border-radius-3">
