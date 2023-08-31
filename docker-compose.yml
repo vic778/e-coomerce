@@ -1,0 +1,40 @@
+version: "2"
+
+volumes:
+  db_data:
+    driver: local
+
+services:
+  cache:
+    image: "memcached:1.4-alpine"
+
+  db:
+    image: "postgres:9.5"
+    volumes:
+      - "db_data:/var/lib/postgresql/data"
+    environment:
+      POSTGRES_USER: ""
+      POSTGRES_PASSWORD: ""
+      POSTGRES_DB: ""
+
+  jobs:
+    env_file: .env
+    build:
+      context: .
+    volumes:
+      - .:/app
+    command: bundle exec rails jobs
+    depends_on:
+      - db
+
+  app:
+    env_file: .env
+    build:
+      context: .
+    volumes:
+      - .:/app
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+     
