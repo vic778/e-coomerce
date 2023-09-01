@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Agendas</h1>
+
+<div id="agendas">
+  <% @agendas.each do |agenda| %>
+    <%= render agenda %>
+    <p>
+      <%= link_to "Show this agenda", agenda %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New agenda", new_agenda_path %>
